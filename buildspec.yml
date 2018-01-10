@@ -1,0 +1,21 @@
+{
+  "taskDefinition": {
+    "family": "hello-world",
+    "containerDefinitions": [
+      {
+        "name": "hello-world",
+        "image": "709325198486.dkr.ecr.us-east-1.amazonaws.com/hello-world ",
+        "cpu": 100,
+        "portMappings": [
+          {
+            "protocol": "tcp",
+            "containerPort": 80,
+            "hostPort": 80
+          }
+        ],
+        "memory": 128,
+        "essential": true
+      }
+    ]
+  }
+}
