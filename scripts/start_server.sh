@@ -1,2 +1,2 @@
-cd var/hello
+cd /var/hello
 ./hello
