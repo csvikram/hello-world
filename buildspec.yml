@@ -4,7 +4,7 @@ phases:
   pre_build:
     commands:
       - aws --version
-      - $(aws ecr get-login --region eu-east-1)
+      - $(aws ecr get-login --region us-east-1)
       - REPOSITORY_URI=709325198486.dkr.ecr.us-east-1.amazonaws.com/hello-world
 #      - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
   build:
