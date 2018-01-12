@@ -13,3 +13,4 @@ artifacts:
   files:
     - hello
     - Dockerfile.production
+    - appspec.yml
