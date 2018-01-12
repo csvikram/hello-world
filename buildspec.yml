@@ -27,6 +27,6 @@ artifacts:
   files:
     - helloimagedefinitions.json
     - hello
-#    - Dockerfile.production
+#    - Dockerfile
 #    - appspec.yml
 #    - scripts/start_server.sh
