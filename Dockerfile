@@ -6,10 +6,10 @@ RUN apt-get update
 RUN apt-get install -y ca-certificates
 
 # Copy our static linked library
-ADD hello main
+ADD hello hello
 
 # Make port 80 available to the world outside this container
 EXPOSE 80
 
 # Run it when the container launches
-ENTRYPOINT ["./main"]
+ENTRYPOINT ["./hello"]

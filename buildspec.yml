@@ -9,8 +9,8 @@ phases:
 #      - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
   build:
     commands:
-      - echo Compiling the Go code...
-      - go build hello.go
+#      - echo Compiling the Go code...
+#      - go build hello.go
       - echo Build started on `date`
       - echo Building the Docker image...
       - docker build -t $REPOSITORY_URI:latest .
