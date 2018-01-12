@@ -1,0 +1,2 @@
+cd var/hello
+./hello
