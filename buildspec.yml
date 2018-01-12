@@ -3,14 +3,10 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - echo Installing aws
-      - sh scripts/AWSCLI_bootstrap.sh
-      - echo Logging in to Amazon ECR...
-      - sh scripts/AWSECR_login.sh
-#      - aws --version
-#      - $(aws ecr get-login --region eu-east-1)
-      - REPOSITORY_URI=709325198486.dkr.ecr.us-east-1.amazonaws.com/hello-world 
-      - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+      - aws --version
+      - $(aws ecr get-login --region eu-east-1)
+      - REPOSITORY_URI=709325198486.dkr.ecr.us-east-1.amazonaws.com/hello-world
+#      - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
   build:
     commands:
       - echo Compiling the Go code...
@@ -18,15 +14,15 @@ phases:
       - echo Build started on `date`
       - echo Building the Docker image...
       - docker build -t $REPOSITORY_URI:latest .
-      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
+      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:latest
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
       - docker push $REPOSITORY_URI:latest
-      - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - docker push $REPOSITORY_URI:latest
       - echo Writing image definitions file...
-      - printf '[{"name":"hello-world","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > helloimagedefinitions.json
+      - printf '[{"name":"hello-world","imageUri":"%s"}]' $REPOSITORY_URI:latest > helloimagedefinitions.json
 artifacts:
   files:
     - helloimagedefinitions.json
