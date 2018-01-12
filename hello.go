@@ -2,12 +2,15 @@ package main
 
 import (
 	"net/http"
+	"fmt"
 )
 
 func main() {
 
+
+	fmt.Println("this is great")
 	http.HandleFunc("/", helloWorld)
-	http.ListenAndServe(":8080",nil)
+	http.ListenAndServe(":80",nil)
 
 }
 
