@@ -1,2 +1,0 @@
-cd /var/hello
-./hello

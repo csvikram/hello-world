@@ -12,6 +12,6 @@ phases:
 artifacts:
   files:
     - hello
-    - Dockerfile.production
-    - appspec.yml
-    - scripts/start_server.sh
+#    - Dockerfile.production
+#    - appspec.yml
+#    - scripts/start_server.sh
