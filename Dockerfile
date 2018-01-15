@@ -11,5 +11,6 @@ ADD hello hello
 # Make port 80 available to the world outside this container
 EXPOSE 80
 
+RUN sh -c 'chmod +x hello'
 # Run it when the container launches
 ENTRYPOINT ["./hello"]
